@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="jp">
+<title>
+    TickFetch
+</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="株式投資に役立つ情報をワンストップで提供">
+</head>
+
+<body>
+    <h1>ティッカーシンボルと企業名を表示する概要ページ
+    </h1>
+</body>
+<article>
+    <article id="companyName">
+        <h2>
+            企業名
+        </h2>
+    </article>
+
+    <article>
+        <h2>
+            <!-- 入力した企業の株価を表示させるjavascriptコードを書く -->
+            株価
+        </h2>
+    </article>
+    <article>
+        <h2>
+            <!-- 入力した企業の時価総額を表示させるjavascriptコードを書く -->
+            時価総額
+        </h2>
+    </article>
+</article>
+<script>
+    const value = localStorage.getItem('responseCompanyOverView');
+    if (value) {
+        const parsedValue = JSON.parse(value);
+        console.log('取得したデータ:', parsedValue);
+        console.log('オブジェクトのキー:', Object.keys(parsedValue));
+    } else {
+        console.log('データが見つかりませんでした');
+    }
+    const parsedValue = JSON.parse(value);
+    // 企業名を表示させるコード
+    const companyName = document.querySelector("#companyName");
+    companyName.textContent += parsedValue.longName;
+</script>
+
+
+</html>
