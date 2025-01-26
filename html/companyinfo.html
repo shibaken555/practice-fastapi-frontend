@@ -17,13 +17,25 @@
     </header>
     <article>
         <h2>
-            企業概要
+            企業情報
         </h2>
-        <p>
-            ここに企業情報を記載するJavascriptのコードを書く
+        <p id="companyInfo">
         </p>
     </article>
-
+    <script>
+        const value = localStorage.getItem('responseCompanyInfo');
+        if (value) {
+            const parsedValue = JSON.parse(value);
+            console.log('取得したデータ:', parsedValue);
+            // 受け取ったレスポンスから企業情報を表示させる
+            const displayedCompanyInfo = document.createTextNode(parsedValue.company_info);
+            const companyInfo = document.querySelector('#companyInfo');
+            companyInfo.appendChild(displayedCompanyInfo);
+        } else {
+            console.log('データが見つかりませんでした');
+        }
+        const parsedValue = JSON.parse(value);
+    </script>
 </body>
 
 </html>
